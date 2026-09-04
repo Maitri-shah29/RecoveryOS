@@ -9,3 +9,4 @@ test-results/
 *.log
 *.tsbuildinfo
 prisma/dev.db
+.vercel/
