@@ -1,0 +1,59 @@
+{
+  "name": "recoveryos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:database": "dotenv -e .env.local -- tsx scripts/smoke-database.ts",
+    "test:watch": "vitest",
+    "dataset:generate": "tsx scripts/generate-dataset.ts",
+    "benchmark": "tsx scripts/run-benchmark.ts",
+    "benchmark:verify": "tsx scripts/verify-benchmark.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "dotenv -e .env.local -- prisma migrate dev",
+    "db:migrate:deploy": "dotenv -e .env.local -- prisma migrate deploy",
+    "db:seed": "dotenv -e .env.local -- tsx prisma/seed.ts",
+    "verify": "npm run dataset:generate && npm run benchmark && npm run benchmark:verify && npm run test && npm run typecheck && npm run build"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.12.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "0.542.0",
+    "next": "16.3.4",
+    "openai": "7.10.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "3.10.1",
+    "tailwind-merge": "3.3.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "dotenv-cli": "10.0.0",
+    "eslint": "9.34.0",
+    "eslint-config-next": "16.3.4",
+    "prisma": "6.12.0",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "vitest": "3.2.7"
+  }
+}
