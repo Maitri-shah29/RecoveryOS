@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { PageHeader } from "@/components/page-header";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+export default function ProofCallbackPage() { return <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8"><PageHeader eyebrow="Razorpay test mode" title="Checkout returned" description="A browser callback is not payment evidence. RecoveryOS waits for a signed webhook and verifies payment truth through the Razorpay API." /><Alert className="border-amber-400/30"><AlertTitle>Verification pending</AlertTitle><AlertDescription>Return to the case timeline after the signed webhook arrives. The callback alone never marks revenue as recovered.</AlertDescription></Alert><Link className="text-sm text-primary underline" href="/cases">Return to recovery queue</Link></main>; }
