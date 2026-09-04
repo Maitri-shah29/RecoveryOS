@@ -1,0 +1,379 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OperatingMode {
+  BENCHMARK
+  RAZORPAY_PROOF
+}
+
+enum RecoveryState {
+  DETECTED
+  INELIGIBLE_STOPPED
+  ANALYZING
+  POLICY_BLOCKED
+  ESCALATED
+  AWAITING_APPROVAL
+  ACTION_REJECTED
+  ACTION_APPROVED
+  ACTION_SCHEDULED
+  ACTION_SENT
+  RECOVERED
+  RETRY_ELIGIBLE
+  EXHAUSTED
+  EXPIRED
+  MANUALLY_STOPPED
+}
+
+enum PaymentState {
+  FAILED
+  AUTHORIZED
+  CAPTURED
+  PAID
+  CANCELLED
+}
+
+enum ActionType {
+  NO_ACTION
+  REMINDER
+  RETRY_INVITATION
+  FRESH_CHECKOUT_LINK
+  ASSISTED_REVIEW
+}
+
+enum ActionState {
+  PROPOSED
+  SCHEDULED
+  SENT
+  CANCELLED
+  COMPLETED
+  FAILED
+}
+
+enum ActorType {
+  SYSTEM
+  AI
+  OPERATOR
+  CUSTOMER
+  RAZORPAY
+}
+
+enum EscalationState {
+  OPEN
+  RESOLVED
+  DISMISSED
+}
+
+enum EvaluationState {
+  CREATED
+  PLANS_FROZEN
+  COMPLETED
+  FAILED
+}
+
+model Merchant {
+  id                  String               @id @default(uuid()) @db.Uuid
+  name                String
+  createdAt           DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime             @updatedAt @map("updated_at") @db.Timestamptz(3)
+  cases               RecoveryCase[]
+  policies            PolicyVersion[]
+  webhookEvents       WebhookEvent[]
+  evaluationRuns      EvaluationRun[]
+  batches             Batch[]
+  idempotencyRecords  IdempotencyRecord[]
+
+  @@map("merchants")
+}
+
+model Batch {
+  id                  String          @id @default(uuid()) @db.Uuid
+  merchantId          String          @map("merchant_id") @db.Uuid
+  externalId          String          @map("external_id")
+  mode                OperatingMode
+  datasetVersion      String          @map("dataset_version")
+  datasetChecksum     String          @map("dataset_checksum") @db.Char(64)
+  caseCount           Int             @map("case_count")
+  state               String          @default("IMPORTED")
+  createdAt           DateTime        @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime        @updatedAt @map("updated_at") @db.Timestamptz(3)
+  merchant            Merchant        @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+  cases               RecoveryCase[]
+  evaluationRuns      EvaluationRun[]
+
+  @@unique([merchantId, externalId])
+  @@map("batches")
+}
+
+model RecoveryCase {
+  id                    String           @id @default(uuid()) @db.Uuid
+  merchantId            String           @map("merchant_id") @db.Uuid
+  batchId               String?          @map("batch_id") @db.Uuid
+  externalCaseId        String           @map("case_id")
+  customerId            String           @map("customer_id")
+  orderId               String           @map("order_id")
+  mode                   OperatingMode
+  amountPaise            Int              @map("amount_paise")
+  currency               String           @db.Char(3)
+  failureCode            String           @map("failure_code")
+  failureDescription     String           @map("failure_description")
+  paymentMethod          String           @map("payment_method")
+  attemptedAt            DateTime         @map("attempted_at") @db.Timestamptz(3)
+  customerSegment        String           @map("customer_segment")
+  priorAttempts          Int              @map("prior_attempts")
+  recoveryContacts7d     Int              @map("recovery_contacts_7d")
+  consentStatus          String           @map("consent_status")
+  riskFlag               String           @map("risk_flag")
+  preferredChannel       String           @map("preferred_channel")
+  customerTimezone       String           @map("customer_timezone")
+  paymentState           PaymentState     @default(FAILED) @map("payment_state")
+  recoveryState          RecoveryState    @default(DETECTED) @map("recovery_state")
+  datasetVersion         String?          @map("dataset_version")
+  datasetSplit           String?          @map("dataset_split")
+  simulationProfileId    String?          @map("simulation_profile_id")
+  createdAt              DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt              DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  merchant               Merchant         @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+  batch                  Batch?           @relation(fields: [batchId], references: [id], onDelete: Restrict)
+  paymentAttempts        PaymentAttempt[]
+  plans                  RecoveryPlan[]
+  actions                RecoveryAction[]
+  escalations            Escalation[]
+  auditEvents            AuditEvent[]
+  evaluationOutcomes     EvaluationOutcome[]
+  attributions           PaymentAttribution[]
+  inboxMessages          InboxMessage[]
+  webhookEvents          WebhookEvent[]
+
+  @@unique([merchantId, externalCaseId])
+  @@index([mode, recoveryState])
+  @@index([batchId])
+  @@map("recovery_cases")
+}
+
+model PaymentAttempt {
+  id                  String        @id @default(uuid()) @db.Uuid
+  caseId              String        @map("case_id") @db.Uuid
+  providerPaymentId   String?       @map("provider_payment_id")
+  attemptNumber       Int           @map("attempt_number")
+  amountPaise         Int           @map("amount_paise")
+  currency            String        @db.Char(3)
+  state               PaymentState
+  attemptedAt         DateTime      @map("attempted_at") @db.Timestamptz(3)
+  createdAt           DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase  @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@unique([caseId, attemptNumber])
+  @@map("payment_attempts")
+}
+
+model PolicyVersion {
+  id                  String        @id @default(uuid()) @db.Uuid
+  merchantId          String        @map("merchant_id") @db.Uuid
+  version             String
+  config              Json
+  isActive            Boolean       @default(false) @map("is_active")
+  createdAt           DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  merchant            Merchant      @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+  plans               RecoveryPlan[]
+  actions             RecoveryAction[]
+  evaluationRuns      EvaluationRun[]
+
+  @@unique([merchantId, version])
+  @@map("policy_versions")
+}
+
+model RecoveryPlan {
+  id                  String         @id @default(uuid()) @db.Uuid
+  caseId              String         @map("case_id") @db.Uuid
+  policyVersionId     String         @map("policy_version_id") @db.Uuid
+  evaluationRunId     String?        @map("evaluation_run_id") @db.Uuid
+  plannerVersion      String         @map("planner_version")
+  plannerType         String         @map("planner_type")
+  diagnosis           String
+  confidence          Decimal        @db.Decimal(4, 3)
+  proposedAction      ActionType     @map("proposed_action")
+  delayMinutes        Int            @map("delay_minutes")
+  reasonCodes         String[]       @map("reason_codes")
+  policyDecision      Json           @map("policy_decision")
+  frozenAt            DateTime?      @map("frozen_at") @db.Timestamptz(3)
+  createdAt           DateTime       @default(now()) @map("created_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase   @relation(fields: [caseId], references: [id], onDelete: Restrict)
+  policyVersion       PolicyVersion  @relation(fields: [policyVersionId], references: [id], onDelete: Restrict)
+  evaluationRun       EvaluationRun? @relation(fields: [evaluationRunId], references: [id], onDelete: Restrict)
+  actions             RecoveryAction[]
+
+  @@unique([caseId, plannerVersion, evaluationRunId])
+  @@map("recovery_plans")
+}
+
+model RecoveryAction {
+  id                  String         @id @default(uuid()) @db.Uuid
+  caseId              String         @map("case_id") @db.Uuid
+  planId              String?        @map("plan_id") @db.Uuid
+  policyVersionId     String         @map("policy_version_id") @db.Uuid
+  mode                OperatingMode
+  type                ActionType
+  state               ActionState    @default(PROPOSED)
+  attemptNumber       Int            @map("attempt_number")
+  idempotencyKey      String         @unique @map("idempotency_key")
+  scheduledFor        DateTime?      @map("scheduled_for") @db.Timestamptz(3)
+  externalReference   String?        @map("external_reference")
+  externalUrl         String?        @map("external_url")
+  providerStatus      String?        @map("provider_status")
+  expiresAt           DateTime?      @map("expires_at") @db.Timestamptz(3)
+  createdAt           DateTime       @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt           DateTime       @updatedAt @map("updated_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase   @relation(fields: [caseId], references: [id], onDelete: Restrict)
+  plan                RecoveryPlan?  @relation(fields: [planId], references: [id], onDelete: Restrict)
+  policyVersion       PolicyVersion  @relation(fields: [policyVersionId], references: [id], onDelete: Restrict)
+  inboxMessage        InboxMessage?
+
+  @@index([caseId, state])
+  @@map("recovery_actions")
+}
+
+model WebhookEvent {
+  id                  String       @id @default(uuid()) @db.Uuid
+  merchantId          String       @map("merchant_id") @db.Uuid
+  caseId              String?      @map("case_id") @db.Uuid
+  razorpayEventId     String       @map("razorpay_event_id")
+  eventType           String       @map("event_type")
+  providerPaymentId   String?      @map("provider_payment_id")
+  signatureValid      Boolean      @map("signature_valid")
+  sanitizedEvidence   Json         @map("sanitized_evidence")
+  processedAt         DateTime?    @map("processed_at") @db.Timestamptz(3)
+  receivedAt          DateTime     @default(now()) @map("received_at") @db.Timestamptz(3)
+  merchant            Merchant     @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+  recoveryCase        RecoveryCase? @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@unique([merchantId, razorpayEventId])
+  @@index([caseId, receivedAt])
+  @@map("webhook_events")
+}
+
+model InboxMessage {
+  id                  String          @id @default(uuid()) @db.Uuid
+  caseId              String          @map("case_id") @db.Uuid
+  actionId            String          @unique @map("action_id") @db.Uuid
+  channel             String
+  body                String
+  deliverAt           DateTime        @map("deliver_at") @db.Timestamptz(3)
+  deliveredAt         DateTime?       @map("delivered_at") @db.Timestamptz(3)
+  createdAt           DateTime        @default(now()) @map("created_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase    @relation(fields: [caseId], references: [id], onDelete: Restrict)
+  action              RecoveryAction  @relation(fields: [actionId], references: [id], onDelete: Restrict)
+
+  @@index([caseId, deliverAt])
+  @@map("inbox_messages")
+}
+
+model IdempotencyRecord {
+  id                  String      @id @default(uuid()) @db.Uuid
+  merchantId          String      @map("merchant_id") @db.Uuid
+  idempotencyKey      String      @map("idempotency_key")
+  route               String
+  requestHash         String      @map("request_hash") @db.Char(64)
+  statusCode          Int         @map("status_code")
+  response            Json
+  createdAt           DateTime    @default(now()) @map("created_at") @db.Timestamptz(3)
+  merchant            Merchant    @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+
+  @@unique([merchantId, idempotencyKey])
+  @@map("idempotency_records")
+}
+
+model Escalation {
+  id                  String           @id @default(uuid()) @db.Uuid
+  caseId              String           @map("case_id") @db.Uuid
+  reasonCode          String           @map("reason_code")
+  state               EscalationState  @default(OPEN)
+  context             Json
+  resolution          String?
+  createdAt           DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  resolvedAt          DateTime?        @map("resolved_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase     @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@index([caseId, reasonCode, state])
+  @@map("escalations")
+}
+
+model AuditEvent {
+  id                  String       @id @default(uuid()) @db.Uuid
+  caseId              String       @map("case_id") @db.Uuid
+  sequenceNumber      Int          @map("sequence_number")
+  timestamp           DateTime     @db.Timestamptz(3)
+  actorType           ActorType    @map("actor_type")
+  actorId             String?      @map("actor_id")
+  eventType           String       @map("event_type")
+  inputRefs           Json         @map("input_refs")
+  decision            Json
+  reasonCodes         String[]     @map("reason_codes")
+  policySnapshot      Json         @map("policy_snapshot")
+  modelMetadata       Json?        @map("model_metadata")
+  previousHash        String       @map("previous_hash") @db.Char(64)
+  eventHash           String       @map("event_hash") @db.Char(64)
+  recoveryCase        RecoveryCase @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@unique([caseId, sequenceNumber])
+  @@map("audit_events")
+}
+
+model EvaluationRun {
+  id                  String               @id @default(uuid()) @db.Uuid
+  merchantId          String               @map("merchant_id") @db.Uuid
+  batchId             String?              @map("batch_id") @db.Uuid
+  policyVersionId     String               @map("policy_version_id") @db.Uuid
+  datasetVersion      String               @map("dataset_version")
+  datasetChecksum     String               @map("dataset_checksum") @db.Char(64)
+  seedId              String               @map("seed_id")
+  state               EvaluationState      @default(CREATED)
+  result              Json?
+  createdAt           DateTime             @default(now()) @map("created_at") @db.Timestamptz(3)
+  completedAt         DateTime?            @map("completed_at") @db.Timestamptz(3)
+  merchant            Merchant             @relation(fields: [merchantId], references: [id], onDelete: Restrict)
+  batch               Batch?                @relation(fields: [batchId], references: [id], onDelete: Restrict)
+  policyVersion       PolicyVersion        @relation(fields: [policyVersionId], references: [id], onDelete: Restrict)
+  plans               RecoveryPlan[]
+  outcomes            EvaluationOutcome[]
+
+  @@index([datasetVersion, state])
+  @@index([batchId])
+  @@map("evaluation_runs")
+}
+
+model EvaluationOutcome {
+  id                  String          @id @default(uuid()) @db.Uuid
+  evaluationRunId     String          @map("evaluation_run_id") @db.Uuid
+  caseId              String          @map("case_id") @db.Uuid
+  policyName          String          @map("policy_name")
+  action              ActionType
+  delayMinutes        Int             @map("delay_minutes")
+  recovered           Boolean
+  recoveredPaise      Int             @map("recovered_paise")
+  interventionCostPaise Int           @map("intervention_cost_paise")
+  outcomeAt           DateTime?       @map("outcome_at") @db.Timestamptz(3)
+  evaluationRun       EvaluationRun   @relation(fields: [evaluationRunId], references: [id], onDelete: Restrict)
+  recoveryCase        RecoveryCase    @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@unique([evaluationRunId, caseId, policyName])
+  @@map("evaluation_outcomes")
+}
+
+model PaymentAttribution {
+  id                  String       @id @default(uuid()) @db.Uuid
+  caseId              String       @map("case_id") @db.Uuid
+  razorpayPaymentId   String       @unique @map("razorpay_payment_id")
+  amountPaise         Int          @map("amount_paise")
+  currency            String       @db.Char(3)
+  evidence            Json
+  attributedAt        DateTime     @default(now()) @map("attributed_at") @db.Timestamptz(3)
+  recoveryCase        RecoveryCase @relation(fields: [caseId], references: [id], onDelete: Restrict)
+
+  @@map("payment_attributions")
+}
