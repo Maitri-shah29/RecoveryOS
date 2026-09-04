@@ -1,0 +1,1238 @@
+{
+  "policy": "REMINDER_EVERYONE",
+  "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+  "planner_version": "deterministic-planner-v1.0.0",
+  "plan_checksum": "0c6024131360c447ecd65ad6443e717ca376cc156df4f908f2257ac679a39493",
+  "plans": [
+    {
+      "case_id": "case_081",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_082",
+      "policy": "REMINDER_EVERYONE",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_083",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_084",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_085",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_086",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_087",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_088",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_089",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_090",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_091",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_092",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_093",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "attempts_available",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_094",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "required_data_complete"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_095",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_096",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_097",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_098",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_099",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_100",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_101",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_102",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_103",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_104",
+      "policy": "REMINDER_EVERYONE",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_105",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_106",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_107",
+      "policy": "REMINDER_EVERYONE",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_108",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_109",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_110",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_111",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_112",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_113",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_114",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_115",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_116",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_117",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_118",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_119",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_120",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_121",
+      "policy": "REMINDER_EVERYONE",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_122",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_123",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_124",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_125",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "required_data_complete"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_126",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_127",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_128",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_129",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_130",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_131",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_132",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_133",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_134",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_135",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_136",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_137",
+      "policy": "REMINDER_EVERYONE",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_review"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_138",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_139",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_140",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_141",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_142",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_143",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_144",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_145",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_146",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_147",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_148",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_149",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_150",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_151",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_152",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_153",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_154",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_155",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_156",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available",
+        "required_data_complete"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_157",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_158",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_159",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_160",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_161",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_162",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_163",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_164",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_165",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_166",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_167",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_168",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_169",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_170",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_171",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_172",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_173",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_174",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "payment_not_already_paid",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_175",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "risk_not_blocked",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_176",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_177",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_178",
+      "policy": "REMINDER_EVERYONE",
+      "action": "REMINDER",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:00:00.000Z"
+    },
+    {
+      "case_id": "case_179",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_180",
+      "policy": "REMINDER_EVERYONE",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_immediate_reminder",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    }
+  ]
+}

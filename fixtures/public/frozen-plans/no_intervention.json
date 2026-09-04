@@ -1,0 +1,1208 @@
+{
+  "policy": "NO_INTERVENTION",
+  "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+  "planner_version": "deterministic-planner-v1.0.0",
+  "plan_checksum": "1057fb9115bf56bf63fd4fe8dc5e115886f4e5ecadf54de66ca79eb36fd25f6b",
+  "plans": [
+    {
+      "case_id": "case_081",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_082",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_083",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_084",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_085",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_086",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_087",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_088",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_089",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_090",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_091",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_092",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_093",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_094",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_095",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_096",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_097",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_098",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_099",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_100",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_101",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_102",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_103",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_104",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_105",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_106",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_107",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_108",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_109",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_110",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_111",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_112",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_113",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_114",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_115",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_116",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_117",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_118",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_119",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_120",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_121",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_122",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_123",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_124",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_125",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_126",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_127",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_128",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_129",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_130",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_131",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_132",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_133",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_134",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_135",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_136",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_137",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_138",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_139",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_140",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_141",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_142",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_143",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_144",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_145",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_146",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_147",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_148",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_149",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_150",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_151",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_152",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_153",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_154",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_155",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_156",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_157",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_158",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_159",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_160",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_161",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_162",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_163",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_164",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_165",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_166",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_167",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_168",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_169",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_170",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_171",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_172",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_173",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_174",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_175",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_176",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_177",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_178",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_179",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_180",
+      "policy": "NO_INTERVENTION",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "baseline_no_intervention",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    }
+  ]
+}

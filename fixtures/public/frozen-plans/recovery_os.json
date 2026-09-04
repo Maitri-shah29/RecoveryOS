@@ -1,0 +1,1301 @@
+{
+  "policy": "RECOVERY_OS",
+  "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+  "planner_version": "deterministic-planner-v1.0.0",
+  "plan_checksum": "619cef2709182f888e74dd93062c0335d62441c1834e784e4f7d545f3200fafa",
+  "plans": [
+    {
+      "case_id": "case_081",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_082",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_083",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_084",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_085",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_086",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_087",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_088",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_089",
+      "policy": "RECOVERY_OS",
+      "action": "RETRY_INVITATION",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_090",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "minimum_amount",
+        "within_recovery_window",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_091",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_092",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_093",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "explicit_consent",
+        "attempts_available",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_094",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_095",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_096",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_097",
+      "policy": "RECOVERY_OS",
+      "action": "RETRY_INVITATION",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_098",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 720,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-16T01:00:00.000Z"
+    },
+    {
+      "case_id": "case_099",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_100",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_101",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_102",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_103",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_104",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "low_confidence",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_105",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_106",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_107",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_108",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_109",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_110",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_111",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_112",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_113",
+      "policy": "RECOVERY_OS",
+      "action": "RETRY_INVITATION",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_114",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_115",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_116",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_117",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "attempts_available",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_118",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_119",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_120",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_121",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "high_value"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_122",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 720,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-16T01:00:00.000Z"
+    },
+    {
+      "case_id": "case_123",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_124",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_125",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "required_data_complete"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_126",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_127",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_128",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "low_confidence"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_129",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_130",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "quiet_hours_past_deadline"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_131",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_132",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_133",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_134",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_135",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_136",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "low_confidence"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_137",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "risk_review"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_138",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "within_recovery_window",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_139",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_140",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_141",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "within_recovery_window",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_142",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_143",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_144",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_145",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_146",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "no_action_in_flight"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_147",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_148",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_149",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_150",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_151",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_152",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "low_confidence"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_153",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_154",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_155",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_156",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "attempts_available",
+        "required_data_complete"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_157",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_158",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_159",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_160",
+      "policy": "RECOVERY_OS",
+      "action": "ASSISTED_REVIEW",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "low_confidence"
+      ],
+      "policy_decision": "ESCALATED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_161",
+      "policy": "RECOVERY_OS",
+      "action": "RETRY_INVITATION",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_162",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "attempts_available",
+        "contact_cap_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_163",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_164",
+      "policy": "RECOVERY_OS",
+      "action": "REMINDER",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "quiet_hours_deferred"
+      ],
+      "policy_decision": "DEFERRED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_165",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "minimum_amount",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_166",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_167",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_168",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_169",
+      "policy": "RECOVERY_OS",
+      "action": "RETRY_INVITATION",
+      "delay_minutes": 30,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T12:30:00.000Z"
+    },
+    {
+      "case_id": "case_170",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "explicit_consent"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_171",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "explicit_consent",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_172",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_173",
+      "policy": "RECOVERY_OS",
+      "action": "FRESH_CHECKOUT_LINK",
+      "delay_minutes": 120,
+      "reason_codes": [
+        "method_unavailable",
+        "offer_new_checkout",
+        "all_gates_passed"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": "2026-01-15T14:00:00.000Z"
+    },
+    {
+      "case_id": "case_174",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "already_paid_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_175",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "risk_blocked_stop",
+        "policy_no_action"
+      ],
+      "policy_decision": "APPROVED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_176",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "unknown_failure",
+        "human_review_required",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_177",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "transient_failure",
+        "bounded_retry",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_178",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "insufficient_funds",
+        "wait_before_contact",
+        "within_recovery_window"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_179",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "authentication_incomplete",
+        "fresh_customer_authorization",
+        "minimum_amount"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    },
+    {
+      "case_id": "case_180",
+      "policy": "RECOVERY_OS",
+      "action": "NO_ACTION",
+      "delay_minutes": 0,
+      "reason_codes": [
+        "checkout_abandoned",
+        "least_intrusive_action",
+        "attempts_available"
+      ],
+      "policy_decision": "BLOCKED",
+      "eligible_at": null
+    }
+  ]
+}

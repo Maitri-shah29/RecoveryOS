@@ -1,0 +1,196 @@
+{
+  "report_version": "benchmark-report-v1.0.0",
+  "dataset_version": "recoveryos-benchmark-v1.0.0",
+  "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+  "policy_version": "policy-v1.0.0",
+  "planner_version": "deterministic-planner-v1.0.0",
+  "seed_id": "sha256:585f252c7c571cd3ea866c185abac0d2e8cd2b6831787c7e6d04edce03764f74",
+  "mode": "BENCHMARK",
+  "money_label": "Recovered — simulation",
+  "cost_assumption_label": "Illustrative operational costs; not empirically validated",
+  "heldout_case_count": 100,
+  "all_cases_accounted_for": true,
+  "identical_dataset_checksum_for_all_policies": true,
+  "policies": [
+    {
+      "policy": "NO_INTERVENTION",
+      "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+      "cases": 100,
+      "revenue_at_risk_paise": 27795000,
+      "recovered_cases": 15,
+      "gross_recovered_paise": 7827300,
+      "assumed_cost_paise": 0,
+      "net_recovered_paise": 7827300,
+      "incremental_net_vs_fixed_paise": -4684400,
+      "contacts": 0,
+      "escalations": 0,
+      "blocked_cases": 0,
+      "unresolved_cases": 0,
+      "unauthorized_contacts": 0,
+      "duplicate_external_actions": 0,
+      "successful_payment_double_attributions": 0,
+      "sensitivity": [
+        {
+          "multiplier": 0.5,
+          "cost_paise": 0,
+          "net_recovered_paise": 7827300
+        },
+        {
+          "multiplier": 1,
+          "cost_paise": 0,
+          "net_recovered_paise": 7827300
+        },
+        {
+          "multiplier": 2,
+          "cost_paise": 0,
+          "net_recovered_paise": 7827300
+        }
+      ]
+    },
+    {
+      "policy": "REMINDER_EVERYONE",
+      "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+      "cases": 100,
+      "revenue_at_risk_paise": 27795000,
+      "recovered_cases": 27,
+      "gross_recovered_paise": 11989100,
+      "assumed_cost_paise": 27600,
+      "net_recovered_paise": 11961500,
+      "incremental_net_vs_fixed_paise": -550200,
+      "contacts": 26,
+      "escalations": 5,
+      "blocked_cases": 69,
+      "unresolved_cases": 5,
+      "unauthorized_contacts": 0,
+      "duplicate_external_actions": 0,
+      "successful_payment_double_attributions": 0,
+      "sensitivity": [
+        {
+          "multiplier": 0.5,
+          "cost_paise": 13800,
+          "net_recovered_paise": 11975300
+        },
+        {
+          "multiplier": 1,
+          "cost_paise": 27600,
+          "net_recovered_paise": 11961500
+        },
+        {
+          "multiplier": 2,
+          "cost_paise": 55200,
+          "net_recovered_paise": 11933900
+        }
+      ]
+    },
+    {
+      "policy": "FIXED_RULE",
+      "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+      "cases": 100,
+      "revenue_at_risk_paise": 27795000,
+      "recovered_cases": 28,
+      "gross_recovered_paise": 12539300,
+      "assumed_cost_paise": 27600,
+      "net_recovered_paise": 12511700,
+      "incremental_net_vs_fixed_paise": 0,
+      "contacts": 26,
+      "escalations": 5,
+      "blocked_cases": 69,
+      "unresolved_cases": 5,
+      "unauthorized_contacts": 0,
+      "duplicate_external_actions": 0,
+      "successful_payment_double_attributions": 0,
+      "sensitivity": [
+        {
+          "multiplier": 0.5,
+          "cost_paise": 13800,
+          "net_recovered_paise": 12525500
+        },
+        {
+          "multiplier": 1,
+          "cost_paise": 27600,
+          "net_recovered_paise": 12511700
+        },
+        {
+          "multiplier": 2,
+          "cost_paise": 55200,
+          "net_recovered_paise": 12484100
+        }
+      ]
+    },
+    {
+      "policy": "RECOVERY_OS",
+      "dataset_checksum": "0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13",
+      "cases": 100,
+      "revenue_at_risk_paise": 27795000,
+      "recovered_cases": 34,
+      "gross_recovered_paise": 13664000,
+      "assumed_cost_paise": 47900,
+      "net_recovered_paise": 13616100,
+      "incremental_net_vs_fixed_paise": 1104400,
+      "contacts": 20,
+      "escalations": 9,
+      "blocked_cases": 47,
+      "unresolved_cases": 9,
+      "unauthorized_contacts": 0,
+      "duplicate_external_actions": 0,
+      "successful_payment_double_attributions": 0,
+      "sensitivity": [
+        {
+          "multiplier": 0.5,
+          "cost_paise": 23950,
+          "net_recovered_paise": 13640050
+        },
+        {
+          "multiplier": 1,
+          "cost_paise": 47900,
+          "net_recovered_paise": 13616100
+        },
+        {
+          "multiplier": 2,
+          "cost_paise": 95800,
+          "net_recovered_paise": 13568200
+        }
+      ]
+    }
+  ],
+  "unresolved_exceptions": [
+    {
+      "policy": "NO_INTERVENTION",
+      "case_ids": []
+    },
+    {
+      "policy": "REMINDER_EVERYONE",
+      "case_ids": [
+        "case_082",
+        "case_104",
+        "case_107",
+        "case_121",
+        "case_137"
+      ]
+    },
+    {
+      "policy": "FIXED_RULE",
+      "case_ids": [
+        "case_082",
+        "case_104",
+        "case_107",
+        "case_121",
+        "case_137"
+      ]
+    },
+    {
+      "policy": "RECOVERY_OS",
+      "case_ids": [
+        "case_082",
+        "case_104",
+        "case_107",
+        "case_121",
+        "case_128",
+        "case_136",
+        "case_137",
+        "case_152",
+        "case_160"
+      ]
+    }
+  ]
+}
