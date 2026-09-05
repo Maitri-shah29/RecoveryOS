@@ -11,7 +11,7 @@ import { sanitizedWebhookEvidence, verifyWebhookSignature, webhookPayloadSchema 
 export async function processRazorpayWebhook(rawBody: string, signature: string, suppliedEventId: string | null, injectedClient?: RazorpayProofClient) {
   const proofConfig = getProofModeConfig();
   if (!proofConfig.enabled && !injectedClient) throw new ApiError(503, proofConfig.reason);
-  const webhookSecret = proofConfig.enabled ? proofConfig.webhookSecret : "injected-test-secret";
+  const webhookSecret = injectedClient ? "injected-test-secret" : proofConfig.enabled ? proofConfig.webhookSecret : "";
   const eventId = suppliedEventId?.trim() || `missing_${createHash("sha256").update(rawBody).digest("hex").slice(0, 32)}`;
   const { merchant } = await ensureSyntheticMerchant(prisma);
   const existing = await prisma.webhookEvent.findUnique({ where: { merchantId_razorpayEventId: { merchantId: merchant.id, razorpayEventId: eventId } } });

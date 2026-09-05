@@ -47,17 +47,23 @@ npm run dev
 | `npm run benchmark:verify` | Re-evaluate frozen plans and require canonical byte equivalence |
 | `npm test` | Run deterministic domain, policy, audit, idempotency, and benchmark tests |
 | `npm run test:database` | Run the persisted benchmark/proof smoke story against a freshly seeded database |
+| `npm run test:acceptance` | Verify all persisted audit chains, held-out terminal states, action-policy links, mode separation, and four-policy outcomes |
+| `npm run test:integrations` | Make one schema-constrained OpenAI request and validate the Razorpay test credentials without creating a Payment Link |
 | `npm run test:e2e` | Start the app and run the Chromium dashboard/failure-lab suite |
 | `npm run typecheck` | Type-check the full application |
 | `npm run build` | Build the production Next.js application |
 | `npm run db:migrate:deploy` | Apply committed PostgreSQL migrations using `.env.local` |
 | `npm run db:seed` | Seed the synthetic merchant, batch, policy, cases, attempts, and genesis audit events |
+| `npm run db:reset:synthetic` | Guarded reset of only the locked synthetic merchant; requires `CONFIRM_SYNTHETIC_RESET=RecoveryOS Synthetic Merchant` |
+| `npm run db:prepare:demo` | Prepare deterministic persisted benchmark/evaluation evidence without creating proof records or external calls |
 
 ## Environment
 
 `.env.example` contains safe placeholders for the locked environment contract. Keep OpenAI values empty to exercise deterministic fallback. To enable model planning, set both `OPENAI_API_KEY` and an explicit `OPENAI_MODEL`; responses are closed-schema, do not store provider-side state, and receive only allow-listed evidence.
 
 Proof mode remains disabled unless every Razorpay variable is present and `RAZORPAY_KEY_ID` starts with `rzp_test_`. Live keys are rejected. `APP_BASE_URL` is used only for the proof callback URL; a browser callback never counts as recovery. Changing the benchmark seed creates different fixtures and must not be represented as the frozen V1 result.
+
+For deployed verification, configure the public webhook as `https://recoveryos-ruby.vercel.app/api/razorpay/webhook` in Razorpay Test Mode and enable `payment.authorized` and `payment.captured`. Never import local database credentials over the Vercel-provisioned Neon variables.
 
 ## Frozen result
 
