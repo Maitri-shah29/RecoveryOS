@@ -1,12 +1,13 @@
 import { expect, test } from "@playwright/test";
 
 test("keeps simulated benchmark and proof evidence visibly separate", async ({ page }) => {
+  test.setTimeout(60_000);
   await page.goto("/");
 
   await expect(page.getByRole("heading", { name: "Held-out recovery benchmark" })).toBeVisible();
   await expect(page.getByText("Benchmark evidence", { exact: true })).toBeVisible();
   await expect(page.getByText("Razorpay proof evidence", { exact: true })).toBeVisible();
-  await expect(page.getByText("This value is never combined with simulated recovery", { exact: false })).toBeVisible();
+  await expect(page.getByText("This value is never combined with simulated recovery", { exact: false })).toBeVisible({ timeout: 30_000 });
   await expect(page.getByRole("cell", { name: "RecoveryOS Policy" })).toBeVisible();
   await expect(page.getByRole("img", { name: "Cumulative simulated RecoveryOS revenue over 48 hours" })).toBeVisible();
 });

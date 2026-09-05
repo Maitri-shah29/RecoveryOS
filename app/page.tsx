@@ -1,16 +1,12 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Database, ShieldCheck } from "lucide-react";
 import type { BenchmarkReport, PolicyMetrics } from "@/lib/benchmark/evaluator";
 import { RecoveryCurve, ResultsChart } from "@/components/results-chart";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { prisma } from "@/lib/db/prisma";
-import { SYNTHETIC_MERCHANT_ID, getProofModeConfig } from "@/lib/config";
-
-export const dynamic = "force-dynamic";
+import { ProofEvidenceCard } from "@/components/proof-evidence-card";
 
 async function getReport(): Promise<BenchmarkReport> {
   const file = await readFile(path.join(process.cwd(), "reports", "heldout-v1.0.0.json"), "utf8");
@@ -31,10 +27,6 @@ function rupees(paise: number) {
 
 export default async function Home() {
   const report = await getReport();
-  const proofConfig = getProofModeConfig();
-  const proofAttributions = await prisma.paymentAttribution.findMany({ where: { recoveryCase: { merchantId: SYNTHETIC_MERCHANT_ID, mode: "RAZORPAY_PROOF" } }, include: { recoveryCase: true }, orderBy: { attributedAt: "desc" } }).catch(() => []);
-  const proofRecoveredPaise = proofAttributions.reduce((sum, item) => sum + item.amountPaise, 0);
-  const latestProof = proofAttributions[0];
   const recovery = report.policies.find((metric) => metric.policy === "RECOVERY_OS");
   if (!recovery) throw new Error("RecoveryOS policy result is missing");
   const chartData = report.policies.map((metric) => ({ name: policyLabels[metric.policy].replace(" · 30 min", ""), gross: metric.gross_recovered_paise / 100, net: metric.net_recovered_paise / 100 }));
@@ -131,10 +123,7 @@ export default async function Home() {
           <CardHeader><div className="flex items-center justify-between gap-3"><CardTitle className="text-base">Benchmark evidence</CardTitle><Badge variant="success">Active</Badge></div></CardHeader>
           <CardContent className="text-sm text-muted-foreground">Virtual clock, simulated inbox, frozen potential outcomes. This mode makes no Razorpay or messaging network calls.</CardContent>
         </Card>
-        <Card className="gap-4 py-5">
-          <CardHeader><div className="flex items-center justify-between gap-3"><CardTitle className="text-base">Razorpay proof evidence</CardTitle><Badge variant={proofConfig.enabled ? "warning" : "outline"}>{proofConfig.enabled ? "Test mode ready" : "Not configured"}</Badge></div></CardHeader>
-          <CardContent className="space-y-3 text-sm text-muted-foreground"><p><span className="font-mono text-foreground">{rupees(proofRecoveredPaise)} test mode</span> · {proofAttributions.length} API-verified {proofAttributions.length === 1 ? "payment" : "payments"}. This value is never combined with simulated recovery.{proofConfig.enabled ? "" : ` ${proofConfig.reason}`}</p>{latestProof ? <Link className="inline-flex text-primary underline" href={`/cases/${latestProof.caseId}`}>Open verified proof case</Link> : null}</CardContent>
-        </Card>
+        <ProofEvidenceCard />
       </section>
 
       <footer className="flex flex-col justify-between gap-2 border-t py-5 text-xs text-muted-foreground sm:flex-row">
