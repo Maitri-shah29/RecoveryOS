@@ -7,8 +7,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RecoveryOS — Deterministic benchmark",
-  description: "Policy-controlled failed-payment recovery benchmark results.",
+  title: "RecoveryOS — AI Revenue Recovery",
+  description: "Policy-controlled failed-checkout recovery with reproducible benchmark evidence and Razorpay Test Mode proof.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

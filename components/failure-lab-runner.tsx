@@ -50,7 +50,7 @@ export function FailureLabRunner() {
             {result.checks.map((check) => (
               <Card key={check.name} className="gap-3 py-4">
                 <CardContent className="flex gap-3">
-                  {check.passed ? <CheckCircle2 aria-label="Passed" className="size-5 shrink-0 text-emerald-300" /> : <XCircle aria-label="Failed" className="size-5 shrink-0 text-red-300" />}
+                  {check.passed ? <CheckCircle2 aria-label="Passed" className="size-5 shrink-0 text-orange-300" /> : <XCircle aria-label="Failed" className="size-5 shrink-0 text-red-300" />}
                   <div><h2 className="font-medium">{check.name.replaceAll("_", " ")}</h2><p className="mt-1 text-xs text-muted-foreground">Expected: {check.expected}</p><p className="text-xs text-muted-foreground">Actual: {check.actual}</p></div>
                 </CardContent>
               </Card>
