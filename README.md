@@ -1,20 +1,106 @@
 # RecoveryOS
 
-RecoveryOS V1 is a failed-checkout recovery control plane with two strictly separated modes. Benchmark mode evaluates four policies against a frozen synthetic held-out set and never calls payment or messaging networks. Razorpay proof mode can create an explicitly approved **test-mode** Payment Link and counts recovery only after signed webhook receipt plus API-verified captured payment truth.
+**A policy-controlled AI agent for recovering failed checkout revenue—measured against reproducible baselines and verified with Razorpay Test Mode.**
 
-The repository includes the Section 31 deterministic foundation and the remaining in-scope V1 workflow: PostgreSQL-backed import/planning/execution, typed AI planning with a deterministic two-failure fallback, approval and exception handling, Razorpay test adapter/reconciliation, append-only audit export, failure lab, operational screens, and browser tests. Authentication, real messaging, subscriptions, voice, live payments, and fraud scoring remain intentionally absent.
+[Live demo](https://recoveryos-ruby.vercel.app) · [Five-minute walkthrough](docs/DEMO.md) · [Benchmark methodology](docs/BENCHMARK.md) · [Architecture](docs/ARCHITECTURE.md)
 
-## Prerequisites
+RecoveryOS was built for **Track 03: AI Revenue Recovery**. It detects failed-payment revenue at risk, selects a bounded intervention, applies deterministic safety gates, executes an auditable recovery workflow, and measures the result. The model may propose; only the policy engine may authorize.
 
-- Node.js 22+
-- npm 11+
-- Docker Desktop with Docker Compose (for PostgreSQL)
-- Playwright Chromium (`npx playwright install chromium`)
+> **Honest-results boundary:** all batch figures below are deterministic results from a versioned synthetic simulator, not production merchant uplift. The ₹125 provider proof is a separate Razorpay Test Mode transaction and is never added to simulated recovery.
 
-## Fresh-clone setup
+## Results at a glance
+
+| Evidence | Result |
+|---|---:|
+| Frozen held-out evaluation | 100 cases · ₹277,950 simulated revenue at risk |
+| RecoveryOS net simulated recovery | **₹136,161** |
+| Incremental net vs. fixed-rule baseline | **₹11,044** |
+| Contacted cases | 20 / 100 |
+| Unauthorized contacts | **0** |
+| Explicit unresolved exceptions | 9 |
+| Razorpay provider proof | **1 captured Test Mode payment · ₹125** |
+
+The benchmark report is generated—not typed into the dashboard. A fixed seed produces 180 public cases (60 development, 20 validation, 100 held out), separate evaluator-only potential outcomes, frozen plans for four policies, and a canonical JSON report. Re-running the pipeline must reproduce the committed bytes exactly.
+
+## Why this meets the track
+
+RecoveryOS closes the loop instead of stopping at detection:
+
+1. **Detect:** import failed-checkout cases with payment state, failure category, consent, risk, and attempt history.
+2. **Decide:** select no action, reminder, retry invitation, fresh checkout link, or assisted review.
+3. **Constrain:** recheck consent, quiet hours, contact caps, payment truth, risk blocks, duplicate actions, and stopping rules.
+4. **Execute:** use a simulated inbox in benchmark mode or an individually approved Razorpay Test Payment Link in proof mode.
+5. **Verify:** count money only from frozen evaluator truth or an API-verified captured Razorpay payment—not from a browser callback.
+6. **Measure:** compare the same held-out cases across no intervention, reminder-everyone, fixed-rule, and RecoveryOS policies.
+7. **Explain:** preserve every decision, action, webhook, attribution, stop, and escalation in a hash-chained audit trail.
+
+## System design
+
+```text
+CSV / JSON cases
+       │
+       ▼
+Eligibility + payment-state checks
+       │
+       ▼
+Typed AI planner ── two failures ──► deterministic fallback
+       │
+       ▼
+Deterministic policy gate + frozen plan
+       │
+       ├── BENCHMARK ──► virtual clock ──► evaluator-only outcomes ──► simulated report
+       │
+       └── RAZORPAY_PROOF ──► operator approval ──► test link ──► signed webhook
+                                                               + provider API truth
+                                                                       │
+                                                                       ▼
+                                                              verified attribution
+```
+
+The modes are structurally separated. Benchmark execution cannot call Razorpay or messaging networks. Proof mode cannot contribute to benchmark totals and fails closed without test credentials, consent, a valid signature, and captured provider truth.
+
+## Product surfaces
+
+- **Executive overview:** headline evidence, integrity checks, recovery curve, and separate proof card.
+- **Policy comparison:** recovery by policy, failure category, action, and illustrative cost sensitivity.
+- **Recovery queue:** filters by workflow state, mode, diagnosis, action, confidence, and escalation.
+- **Case timeline:** payment truth, frozen plan, reason codes, approvals, actions, webhooks, attribution, and audit export.
+- **Policy configuration:** immutable policy versions with safe defaults.
+- **Exceptions:** explicit operator-owned resolution and dismissal workflow.
+- **Failure lab:** duplicate webhook, out-of-order event, invalid signature, model fallback, database constraint, and trigger demonstrations.
+
+## Technology
+
+- Next.js 16 App Router, React 19, TypeScript, Tailwind CSS
+- PostgreSQL with Prisma and database-level invariants
+- OpenAI Responses API with closed-schema output and deterministic fallback
+- Razorpay Payment Links, signed webhooks, and payment API reconciliation—Test Mode only
+- Vitest for domain and integration tests; Playwright for browser acceptance tests
+- Vercel deployment with Neon PostgreSQL
+
+## Quick start
+
+### Deterministic benchmark only
+
+No database, OpenAI key, or Razorpay credentials are required.
 
 ```bash
-npm install
+npm ci
+npm run dataset:generate
+npm run benchmark
+npm run benchmark:verify
+npm test
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). The generated report is written to [`reports/heldout-v1.0.0.json`](reports/heldout-v1.0.0.json).
+
+### Full local application
+
+Prerequisites: Node.js 22+, npm 11+, Docker Desktop with Compose, and Playwright Chromium.
+
+```bash
+npm ci
 copy .env.example .env.local
 docker compose up -d postgres
 npm run db:generate
@@ -26,68 +112,99 @@ npm run test:e2e
 npm run dev
 ```
 
-On macOS/Linux, replace `copy` with `cp`. Open [http://localhost:3000](http://localhost:3000). `npm run verify` regenerates the dataset, freezes all plans, evaluates the held-out batch, checks byte reproducibility, runs unit tests and type checking, and builds the production dashboard.
+On macOS/Linux, replace `copy` with `cp`.
 
-PostgreSQL and external credentials are not needed for the deterministic benchmark itself:
+## Environment variables
 
-```bash
-npm run dataset:generate
-npm run benchmark
-npm run benchmark:verify
-npm test
-npm run dev
+| Variable | Required for | Notes |
+|---|---|---|
+| `DATABASE_URL` | Persisted product workflow | PostgreSQL connection string |
+| `OPENAI_API_KEY` | Optional AI planning | Leave empty to test deterministic fallback |
+| `OPENAI_MODEL` | Optional AI planning | Explicit model identifier paired with the API key |
+| `RAZORPAY_KEY_ID` | Proof mode | Must begin with `rzp_test_`; live keys are rejected |
+| `RAZORPAY_KEY_SECRET` | Proof mode | Server-side secret; never expose to the browser |
+| `RAZORPAY_WEBHOOK_SECRET` | Proof reconciliation | Verifies the raw webhook body signature |
+| `APP_BASE_URL` | Proof callback | Public origin locally or on Vercel |
+| `BENCHMARK_SEED` | Dataset generation | Frozen V1 value is documented in `.env.example` |
+
+Copy [`.env.example`](.env.example) and keep secrets out of Git. The deterministic benchmark deliberately runs without external credentials.
+
+For the deployed proof, configure the Razorpay Test Mode webhook as:
+
+```text
+https://recoveryos-ruby.vercel.app/api/razorpay/webhook
 ```
 
-## Commands
+Enable `payment.authorized` and `payment.captured`. Never import a local database URL over Vercel-provisioned database variables.
 
-| Command | Purpose |
+## Verification commands
+
+| Command | What it proves |
 |---|---|
-| `npm run dataset:generate` | Recreate the 180 public cases and separate 4,500-row evaluator fixture |
-| `npm run benchmark` | Freeze four policy plan files and write held-out JSON reports |
-| `npm run benchmark:verify` | Re-evaluate frozen plans and require canonical byte equivalence |
-| `npm test` | Run deterministic domain, policy, audit, idempotency, and benchmark tests |
-| `npm run test:database` | Run the persisted benchmark/proof smoke story against a freshly seeded database |
-| `npm run test:acceptance` | Verify all persisted audit chains, held-out terminal states, action-policy links, mode separation, and four-policy outcomes |
-| `npm run test:integrations` | Make one schema-constrained OpenAI request and validate the Razorpay test credentials without creating a Payment Link |
-| `npm run test:proof:live` | With an explicit confirmation flag, reverify the latest captured test payment, attribution, provider truth, and audit chain |
-| `npm run test:e2e` | Start the app and run the Chromium dashboard/failure-lab suite |
-| `npm run typecheck` | Type-check the full application |
-| `npm run build` | Build the production Next.js application |
-| `npm run db:migrate:deploy` | Apply committed PostgreSQL migrations using `.env.local` |
-| `npm run db:seed` | Seed the synthetic merchant, batch, policy, cases, attempts, and genesis audit events |
-| `npm run db:reset:synthetic` | Guarded reset of only the locked synthetic merchant; requires `CONFIRM_SYNTHETIC_RESET=RecoveryOS Synthetic Merchant` |
-| `npm run db:prepare:demo` | Prepare deterministic persisted benchmark/evaluation evidence without creating proof records or external calls |
+| `npm run verify` | Regenerates data/report, verifies byte reproducibility, runs unit tests and type checking, then builds production |
+| `npm run benchmark:verify` | Frozen plans reproduce the committed canonical report |
+| `npm test` | State machines, policy rules, audit chains, idempotency, benchmark separation, AI fallback, and Razorpay reconciliation |
+| `npm run test:database` | Persisted benchmark/proof smoke story against seeded PostgreSQL |
+| `npm run test:acceptance` | Terminal states, policy links, mode separation, audit integrity, and all four outcomes |
+| `npm run test:integrations` | One constrained OpenAI request plus Razorpay test credential validation; creates no link |
+| `npm run test:proof:live` | Explicitly authorized re-verification of captured proof, attribution, provider truth, and audit chain |
+| `npm run test:e2e` | Chromium coverage of the dashboard, operational pages, and failure lab |
 
-## Environment
+## Reproducible benchmark
 
-`.env.example` contains safe placeholders for the locked environment contract. Keep OpenAI values empty to exercise deterministic fallback. To enable model planning, set both `OPENAI_API_KEY` and an explicit `OPENAI_MODEL`; responses are closed-schema, do not store provider-side state, and receive only allow-listed evidence.
-
-Proof mode remains disabled unless every Razorpay variable is present and `RAZORPAY_KEY_ID` starts with `rzp_test_`. Live keys are rejected. `APP_BASE_URL` is used only for the proof callback URL; a browser callback never counts as recovery. Changing the benchmark seed creates different fixtures and must not be represented as the frozen V1 result.
-
-For deployed verification, configure the public webhook as `https://recoveryos-ruby.vercel.app/api/razorpay/webhook` in Razorpay Test Mode and enable `payment.authorized` and `payment.captured`. Never import local database credentials over the Vercel-provisioned Neon variables.
-
-## Frozen result
-
-- Dataset: `recoveryos-benchmark-v1.0.0`
+- Dataset version: `recoveryos-benchmark-v1.0.0`
 - Split: 60 development / 20 validation / 100 held out
 - Held-out SHA-256: `0124a44136ad7b96a53d6760ab877bfd654faf618b0895706b18aa2674c23c13`
-- Headline label: **Recovered — simulation**
-- RecoveryOS net simulated recovery: **₹136,161** under the declared 1× illustrative-cost assumption
-- Incremental net versus fixed-rule baseline: **₹11,044**
-- Unauthorized contacts: **0**
-- Razorpay proof: **1 API-verified Test Mode payment · ₹125**, reported separately
+- Policies: no intervention, reminder everyone, fixed rule, RecoveryOS
+- Frozen evaluation window: 48 virtual hours
+- Declared 1× costs: no action ₹0, reminder/retry ₹1, fresh link ₹2, assisted review ₹50
 
-These are controlled simulator results, not production uplift. Razorpay test-mode recovered revenue is displayed separately and is never combined with simulated revenue.
+Potential-outcome probabilities and costs are published assumptions—not merchant data or causal estimates. See [the complete methodology](docs/BENCHMARK.md), [limitations](docs/LIMITATIONS.md), and the [machine-readable report](reports/heldout-v1.0.0.json).
 
-## Evidence and design notes
+## Five-minute demo
 
-- [Architecture](docs/ARCHITECTURE.md)
-- [Benchmark methodology](docs/BENCHMARK.md)
-- [Safety policy](docs/SAFETY.md)
-- [Limitations](docs/LIMITATIONS.md)
-- [Five-minute demo](docs/DEMO.md)
-- [Provider proof evidence](docs/PROOF.md)
-- Machine-readable report: [`reports/heldout-v1.0.0.json`](reports/heldout-v1.0.0.json)
-- Production demo verification: [`artifacts/demo-verification-v1.0.0.json`](artifacts/demo-verification-v1.0.0.json)
+1. Start at the [executive overview](https://recoveryos-ruby.vercel.app) and establish the honest simulation/Test Mode boundary.
+2. Open the verified proof case to show `CAPTURED / RECOVERED`, signature-valid webhook evidence, API attribution, and the audit chain.
+3. Run the Failure Lab to demonstrate safe behavior under duplicate, late, invalid, and unavailable inputs.
+4. Open Comparison to show one checksum across all four policies and the ₹11,044 incremental result.
+5. Finish with Exceptions and an exported audit trail, then state the production limitations.
 
-The PRD remains the source of truth. Section 31 is the authoritative kickoff contract.
+The timestamped narration and exact clicks are in [docs/DEMO.md](docs/DEMO.md). Provider evidence is documented in [docs/PROOF.md](docs/PROOF.md).
+
+## Safety and engineering decisions
+
+- Integer paise for all money; UTC for all internal timestamps.
+- Pure, tested payment and recovery state machines reject illegal transitions.
+- Idempotency is enforced in application code and PostgreSQL constraints.
+- State changes and audit events commit in the same transaction.
+- Evaluator-only outcomes cannot enter planner types, prompts, APIs, or logs.
+- Browser callbacks never count as payment evidence.
+- Proof mode allows Test Mode credentials only and requires per-case approval.
+- Uncertain or unsafe cases stop or escalate; they are never silently counted as recovered.
+
+Read [docs/SAFETY.md](docs/SAFETY.md) for the complete guardrail model and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for state ownership and database backstops.
+
+## Scope and limitations
+
+V1 focuses on failed-checkout recovery. Authentication, multi-tenancy, real customer messaging, live-money payments, subscription recovery, voice, fraud scoring, production operations, and causal lift validation are intentionally outside the locked PRD scope. They are not represented as completed features.
+
+The source of truth is [`RecoveryOS-PRD.md`](RecoveryOS-PRD.md), with Section 31 as the authoritative implementation contract.
+
+## Repository evidence map
+
+| Question a reviewer may ask | Evidence |
+|---|---|
+| Where do the displayed figures come from? | [`scripts/run-benchmark.ts`](scripts/run-benchmark.ts), [`lib/benchmark/evaluator.ts`](lib/benchmark/evaluator.ts), and the generated report |
+| Are outcomes hidden from the planner? | [`lib/benchmark/planner.ts`](lib/benchmark/planner.ts) and [architecture notes](docs/ARCHITECTURE.md) |
+| Can the result be reproduced? | [`scripts/verify-benchmark.ts`](scripts/verify-benchmark.ts) and benchmark tests |
+| Are unsafe contacts blocked? | [`lib/domain/policy.ts`](lib/domain/policy.ts) and [safety documentation](docs/SAFETY.md) |
+| Is payment truth provider-verified? | [`lib/razorpay`](lib/razorpay), webhook route, proof tests, and [proof evidence](docs/PROOF.md) |
+| Can actions be reconstructed? | Prisma audit entities, service transactions, and per-case audit export |
+
+## Final submission claim
+
+> RecoveryOS processed **100 held-out failed-payment cases** representing **₹277,950 in simulated revenue at risk**. It recovered **₹136,161 simulated net of intervention cost**, an incremental **₹11,044 over the fixed-rule baseline**, while producing **zero unauthorized contacts**, respecting all stopping rules, and escalating **9 unresolved cases**. Separately, **one ₹125 Razorpay Test Mode payment** was recovered and verified through signed, idempotent webhook processing and provider API truth.
+
+---
+
+Built as an auditable revenue-recovery system: AI for judgment, deterministic code for permission, and provider truth for money.
