@@ -27,6 +27,26 @@ test("renders comparison evidence and the database-backed queue", async ({ page 
   await expect(page.getByLabel("Escalation")).toBeVisible();
 });
 
+test("shows provider proof and complete operator review evidence", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto("/");
+  await Promise.all([
+    page.waitForURL(/\/cases\/36425e4e-bf35-4138-8269-59b967065453$/, { timeout: 30_000 }),
+    page.getByRole("link", { name: "Open verified proof case" }).click(),
+  ]);
+  await expect(page.getByRole("heading", { name: "proof-case_059-39627dee" })).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole("heading", { name: "Planner recommendation evidence" })).toBeVisible();
+  await expect(page.getByText("Expected recovery", { exact: true })).toBeVisible();
+  await expect(page.getByText("API-verified attribution", { exact: true })).toBeVisible();
+  await expect(page.getByText("signature valid", { exact: true })).toHaveCount(2);
+  await expect(page.getByText("Verified · 8 events", { exact: true })).toBeVisible();
+
+  await page.goto("/exceptions");
+  await expect(page.getByRole("heading", { name: "Unresolved exceptions" })).toBeVisible();
+  await expect(page.getByRole("columnheader", { name: "Attempts" })).toBeVisible();
+  await expect(page.getByRole("columnheader", { name: "Suggested next safe step" })).toBeVisible();
+});
+
 test("runs all safe failure injections in the browser", async ({ page }) => {
   await page.goto("/failure-lab");
   const [response] = await Promise.all([
@@ -40,8 +60,11 @@ test("runs all safe failure injections in the browser", async ({ page }) => {
     "out of order webhook",
     "invalid signature",
     "model timeout",
+    "database unique guards",
+    "database terminal and audit guards",
   ]) {
     await expect(page.getByRole("heading", { name })).toBeVisible();
   }
   await expect(page.getByText("Actual: 2 attempts then fallback_rule", { exact: true })).toBeVisible();
+  await expect(page.getByText("Passed 6/6 checks.", { exact: true })).toBeVisible();
 });

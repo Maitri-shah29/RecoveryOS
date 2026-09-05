@@ -18,6 +18,7 @@
     "test:database": "dotenv -e .env.local -- tsx scripts/smoke-database.ts",
     "test:acceptance": "dotenv -e .env.local -- tsx scripts/verify-database-acceptance.ts",
     "test:integrations": "dotenv -e .env.local -- tsx scripts/verify-integrations.ts",
+    "test:proof:live": "dotenv -e .env.local -- tsx scripts/verify-live-proof.ts",
     "test:watch": "vitest",
     "dataset:generate": "tsx scripts/generate-dataset.ts",
     "benchmark": "tsx scripts/run-benchmark.ts",
@@ -28,6 +29,7 @@
     "db:seed": "dotenv -e .env.local -- tsx prisma/seed.ts",
     "db:reset:synthetic": "dotenv -e .env.local -- tsx scripts/reset-synthetic-demo.ts",
     "db:prepare:demo": "dotenv -e .env.local -- tsx scripts/prepare-demo.ts",
+    "db:enrich:escalations": "dotenv -e .env.local -- tsx scripts/enrich-escalations.ts",
     "verify": "npm run dataset:generate && npm run benchmark && npm run benchmark:verify && npm run test && npm run typecheck && npm run build"
   },
   "prisma": {

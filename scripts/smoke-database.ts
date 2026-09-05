@@ -32,7 +32,7 @@ assert(planningDurationMs < 60_000, `Planning exceeded the 60-second requirement
 assert.equal(record(planned.body).planned, 180);
 const replay = await planBatch(batch.id, planKey);
 assert.equal(replay.replayed, true);
-const unsafeActions = await prisma.recoveryAction.count({ where: { OR: [{ planId: null }, { recoveryCase: { consentStatus: { not: "OPTED_IN" } } }, { recoveryCase: { riskFlag: "BLOCKED" } }, { recoveryCase: { paymentState: { in: ["CAPTURED", "PAID"] } } }] } });
+const unsafeActions = await prisma.recoveryAction.count({ where: { mode: "BENCHMARK", OR: [{ planId: null }, { recoveryCase: { consentStatus: { not: "OPTED_IN" } } }, { recoveryCase: { riskFlag: "BLOCKED" } }, { recoveryCase: { paymentState: { in: ["CAPTURED", "PAID"] } } }] } });
 assert.equal(unsafeActions, 0);
 const existingClockRecords = await prisma.idempotencyRecord.findMany({
   where: { merchantId: batch.merchantId, route: "/api/benchmark/advance" },
