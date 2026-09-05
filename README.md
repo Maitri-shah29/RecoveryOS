@@ -49,6 +49,7 @@ npm run dev
 | `npm run test:database` | Run the persisted benchmark/proof smoke story against a freshly seeded database |
 | `npm run test:acceptance` | Verify all persisted audit chains, held-out terminal states, action-policy links, mode separation, and four-policy outcomes |
 | `npm run test:integrations` | Make one schema-constrained OpenAI request and validate the Razorpay test credentials without creating a Payment Link |
+| `npm run test:proof:live` | With an explicit confirmation flag, reverify the latest captured test payment, attribution, provider truth, and audit chain |
 | `npm run test:e2e` | Start the app and run the Chromium dashboard/failure-lab suite |
 | `npm run typecheck` | Type-check the full application |
 | `npm run build` | Build the production Next.js application |
@@ -74,6 +75,7 @@ For deployed verification, configure the public webhook as `https://recoveryos-r
 - RecoveryOS net simulated recovery: **₹136,161** under the declared 1× illustrative-cost assumption
 - Incremental net versus fixed-rule baseline: **₹11,044**
 - Unauthorized contacts: **0**
+- Razorpay proof: **1 API-verified Test Mode payment · ₹125**, reported separately
 
 These are controlled simulator results, not production uplift. Razorpay test-mode recovered revenue is displayed separately and is never combined with simulated revenue.
 
@@ -83,6 +85,8 @@ These are controlled simulator results, not production uplift. Razorpay test-mod
 - [Benchmark methodology](docs/BENCHMARK.md)
 - [Safety policy](docs/SAFETY.md)
 - [Limitations](docs/LIMITATIONS.md)
+- [Five-minute demo](docs/DEMO.md)
+- [Provider proof evidence](docs/PROOF.md)
 - Machine-readable report: [`reports/heldout-v1.0.0.json`](reports/heldout-v1.0.0.json)
 
 The PRD remains the source of truth. Section 31 is the authoritative kickoff contract.

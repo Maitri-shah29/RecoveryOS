@@ -9,8 +9,8 @@ export function CardHeader({ className, ...props }: React.ComponentProps<"div">)
   return <div data-slot="card-header" className={cn("grid gap-1.5 px-6", className)} {...props} />;
 }
 
-export function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-slot="card-title" className={cn("font-semibold leading-none", className)} {...props} />;
+export function CardTitle({ className, ...props }: React.ComponentProps<"h2">) {
+  return <h2 data-slot="card-title" className={cn("font-semibold leading-none", className)} {...props} />;
 }
 
 export function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
