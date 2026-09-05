@@ -45,6 +45,9 @@ test("shows provider proof and complete operator review evidence", async ({ page
   await expect(page.getByRole("heading", { name: "Unresolved exceptions" })).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "Attempts" })).toBeVisible();
   await expect(page.getByRole("columnheader", { name: "Suggested next safe step" })).toBeVisible();
+
+  await page.goto("/cases/not-a-real-case");
+  await expect(page.getByRole("heading", { name: "Recovery case not found" })).toBeVisible();
 });
 
 test("runs all safe failure injections in the browser", async ({ page }) => {
