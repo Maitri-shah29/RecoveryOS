@@ -29,6 +29,9 @@ export type PolicyMetrics = {
   duplicate_external_actions: number;
   successful_payment_double_attributions: number;
   sensitivity: { multiplier: number; cost_paise: number; net_recovered_paise: number }[];
+  recovery_curve: { elapsed_minutes: number; recovered_cases: number; gross_recovered_paise: number }[];
+  recovery_by_failure: { failure_code: string; cases: number; recovered_cases: number; gross_recovered_paise: number }[];
+  recovery_by_action: { action: RecoveryActionType; cases: number; recovered_cases: number; gross_recovered_paise: number; assumed_cost_paise: number; net_recovered_paise: number }[];
 };
 
 export type BenchmarkReport = {
@@ -75,6 +78,9 @@ export function evaluateFrozenPlans(
     let blocked = 0;
     let unauthorized = 0;
     const exceptionIds: string[] = [];
+    const recoveredEvents: { elapsedMinutes: number; amountPaise: number }[] = [];
+    const byFailure = new Map<string, { cases: number; recoveredCases: number; grossRecoveredPaise: number }>();
+    const byAction = new Map<RecoveryActionType, { cases: number; recoveredCases: number; grossRecoveredPaise: number; assumedCostPaise: number }>();
 
     for (const plan of planSet.plans) {
       if (seen.has(plan.case_id)) throw new Error(`Duplicate plan for ${plan.case_id}`);
@@ -84,6 +90,13 @@ export function evaluateFrozenPlans(
       const outcome = outcomeByKey.get(`${plan.case_id}|${plan.action}|${plan.delay_minutes}`);
       if (!outcome) throw new Error(`Missing potential outcome for ${plan.case_id}`);
       const isContact = contactActions.includes(plan.action);
+      const failureMetric = byFailure.get(item.failure_code) ?? { cases: 0, recoveredCases: 0, grossRecoveredPaise: 0 };
+      failureMetric.cases += 1;
+      byFailure.set(item.failure_code, failureMetric);
+      const actionMetric = byAction.get(plan.action) ?? { cases: 0, recoveredCases: 0, grossRecoveredPaise: 0, assumedCostPaise: 0 };
+      actionMetric.cases += 1;
+      actionMetric.assumedCostPaise += ACTION_COST_PAISE[plan.action];
+      byAction.set(plan.action, actionMetric);
       if (isContact) {
         contacts += 1;
         if (item.consent_status !== "OPTED_IN" || item.risk_flag === "BLOCKED" || item.order_paid || item.prior_attempts >= 2) unauthorized += 1;
@@ -97,6 +110,11 @@ export function evaluateFrozenPlans(
       if (outcome.recovered && outcome.recovery_delay_minutes !== null && outcome.recovery_delay_minutes < 2_880) {
         gross += item.amount_paise;
         recoveredCases += 1;
+        recoveredEvents.push({ elapsedMinutes: outcome.recovery_delay_minutes, amountPaise: item.amount_paise });
+        failureMetric.recoveredCases += 1;
+        failureMetric.grossRecoveredPaise += item.amount_paise;
+        actionMetric.recoveredCases += 1;
+        actionMetric.grossRecoveredPaise += item.amount_paise;
       }
     }
     unresolved.push({ policy: planSet.policy, case_ids: exceptionIds });
@@ -118,6 +136,24 @@ export function evaluateFrozenPlans(
       duplicate_external_actions: 0,
       successful_payment_double_attributions: 0,
       sensitivity: [0.5, 1, 2].map((multiplier) => ({ multiplier, cost_paise: Math.round(cost * multiplier), net_recovered_paise: gross - Math.round(cost * multiplier) })),
+      recovery_curve: [0, 120, 720, 1_440, 2_880].map((elapsedMinutes) => {
+        const recovered = recoveredEvents.filter((event) => event.elapsedMinutes <= elapsedMinutes);
+        return { elapsed_minutes: elapsedMinutes, recovered_cases: recovered.length, gross_recovered_paise: recovered.reduce((sum, event) => sum + event.amountPaise, 0) };
+      }),
+      recovery_by_failure: [...byFailure.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([failureCode, value]) => ({
+        failure_code: failureCode,
+        cases: value.cases,
+        recovered_cases: value.recoveredCases,
+        gross_recovered_paise: value.grossRecoveredPaise,
+      })),
+      recovery_by_action: [...byAction.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([action, value]) => ({
+        action,
+        cases: value.cases,
+        recovered_cases: value.recoveredCases,
+        gross_recovered_paise: value.grossRecoveredPaise,
+        assumed_cost_paise: value.assumedCostPaise,
+        net_recovered_paise: value.grossRecoveredPaise - value.assumedCostPaise,
+      })),
     };
   });
   const fixedNet = initialMetrics.find((metric) => metric.policy === "FIXED_RULE")?.net_recovered_paise;

@@ -45,6 +45,93 @@
           "cost_paise": 0,
           "net_recovered_paise": 7827300
         }
+      ],
+      "recovery_curve": [
+        {
+          "elapsed_minutes": 0,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 120,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 720,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 3337500
+        },
+        {
+          "elapsed_minutes": 1440,
+          "recovered_cases": 15,
+          "gross_recovered_paise": 7827300
+        },
+        {
+          "elapsed_minutes": 2880,
+          "recovered_cases": 15,
+          "gross_recovered_paise": 7827300
+        }
+      ],
+      "recovery_by_failure": [
+        {
+          "failure_code": "ABANDONED",
+          "cases": 13,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "ALREADY_PAID",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "AUTHENTICATION_INCOMPLETE",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 2557400
+        },
+        {
+          "failure_code": "INSUFFICIENT_FUNDS",
+          "cases": 13,
+          "recovered_cases": 2,
+          "gross_recovered_paise": 124900
+        },
+        {
+          "failure_code": "METHOD_UNAVAILABLE",
+          "cases": 12,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 3095000
+        },
+        {
+          "failure_code": "RISK_BLOCKED",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "TRANSIENT",
+          "cases": 13,
+          "recovered_cases": 2,
+          "gross_recovered_paise": 1500000
+        },
+        {
+          "failure_code": "UNKNOWN",
+          "cases": 12,
+          "recovered_cases": 1,
+          "gross_recovered_paise": 550000
+        }
+      ],
+      "recovery_by_action": [
+        {
+          "action": "NO_ACTION",
+          "cases": 100,
+          "recovered_cases": 15,
+          "gross_recovered_paise": 7827300,
+          "assumed_cost_paise": 0,
+          "net_recovered_paise": 7827300
+        }
       ]
     },
     {
@@ -79,6 +166,109 @@
           "multiplier": 2,
           "cost_paise": 55200,
           "net_recovered_paise": 11933900
+        }
+      ],
+      "recovery_curve": [
+        {
+          "elapsed_minutes": 0,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 120,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 720,
+          "recovered_cases": 8,
+          "gross_recovered_paise": 3324600
+        },
+        {
+          "elapsed_minutes": 1440,
+          "recovered_cases": 27,
+          "gross_recovered_paise": 11989100
+        },
+        {
+          "elapsed_minutes": 2880,
+          "recovered_cases": 27,
+          "gross_recovered_paise": 11989100
+        }
+      ],
+      "recovery_by_failure": [
+        {
+          "failure_code": "ABANDONED",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 662300
+        },
+        {
+          "failure_code": "ALREADY_PAID",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "AUTHENTICATION_INCOMPLETE",
+          "cases": 13,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 2907300
+        },
+        {
+          "failure_code": "INSUFFICIENT_FUNDS",
+          "cases": 13,
+          "recovered_cases": 5,
+          "gross_recovered_paise": 1437300
+        },
+        {
+          "failure_code": "METHOD_UNAVAILABLE",
+          "cases": 12,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 3182400
+        },
+        {
+          "failure_code": "RISK_BLOCKED",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "TRANSIENT",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 1999800
+        },
+        {
+          "failure_code": "UNKNOWN",
+          "cases": 12,
+          "recovered_cases": 2,
+          "gross_recovered_paise": 1800000
+        }
+      ],
+      "recovery_by_action": [
+        {
+          "action": "ASSISTED_REVIEW",
+          "cases": 5,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 5000000,
+          "assumed_cost_paise": 25000,
+          "net_recovered_paise": 4975000
+        },
+        {
+          "action": "NO_ACTION",
+          "cases": 69,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 4414900,
+          "assumed_cost_paise": 0,
+          "net_recovered_paise": 4414900
+        },
+        {
+          "action": "REMINDER",
+          "cases": 26,
+          "recovered_cases": 14,
+          "gross_recovered_paise": 2574200,
+          "assumed_cost_paise": 2600,
+          "net_recovered_paise": 2571600
         }
       ]
     },
@@ -115,6 +305,109 @@
           "cost_paise": 55200,
           "net_recovered_paise": 12484100
         }
+      ],
+      "recovery_curve": [
+        {
+          "elapsed_minutes": 0,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 120,
+          "recovered_cases": 1,
+          "gross_recovered_paise": 550000
+        },
+        {
+          "elapsed_minutes": 720,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 3987300
+        },
+        {
+          "elapsed_minutes": 1440,
+          "recovered_cases": 28,
+          "gross_recovered_paise": 12539300
+        },
+        {
+          "elapsed_minutes": 2880,
+          "recovered_cases": 28,
+          "gross_recovered_paise": 12539300
+        }
+      ],
+      "recovery_by_failure": [
+        {
+          "failure_code": "ABANDONED",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 662300
+        },
+        {
+          "failure_code": "ALREADY_PAID",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "AUTHENTICATION_INCOMPLETE",
+          "cases": 13,
+          "recovered_cases": 8,
+          "gross_recovered_paise": 3707300
+        },
+        {
+          "failure_code": "INSUFFICIENT_FUNDS",
+          "cases": 13,
+          "recovered_cases": 5,
+          "gross_recovered_paise": 1637400
+        },
+        {
+          "failure_code": "METHOD_UNAVAILABLE",
+          "cases": 12,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 2532500
+        },
+        {
+          "failure_code": "RISK_BLOCKED",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "TRANSIENT",
+          "cases": 13,
+          "recovered_cases": 5,
+          "gross_recovered_paise": 2199800
+        },
+        {
+          "failure_code": "UNKNOWN",
+          "cases": 12,
+          "recovered_cases": 2,
+          "gross_recovered_paise": 1800000
+        }
+      ],
+      "recovery_by_action": [
+        {
+          "action": "ASSISTED_REVIEW",
+          "cases": 5,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 5000000,
+          "assumed_cost_paise": 25000,
+          "net_recovered_paise": 4975000
+        },
+        {
+          "action": "NO_ACTION",
+          "cases": 69,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 4414900,
+          "assumed_cost_paise": 0,
+          "net_recovered_paise": 4414900
+        },
+        {
+          "action": "REMINDER",
+          "cases": 26,
+          "recovered_cases": 15,
+          "gross_recovered_paise": 3124400,
+          "assumed_cost_paise": 2600,
+          "net_recovered_paise": 3121800
+        }
       ]
     },
     {
@@ -149,6 +442,125 @@
           "multiplier": 2,
           "cost_paise": 95800,
           "net_recovered_paise": 13568200
+        }
+      ],
+      "recovery_curve": [
+        {
+          "elapsed_minutes": 0,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 120,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "elapsed_minutes": 720,
+          "recovered_cases": 13,
+          "gross_recovered_paise": 4299500
+        },
+        {
+          "elapsed_minutes": 1440,
+          "recovered_cases": 32,
+          "gross_recovered_paise": 13514200
+        },
+        {
+          "elapsed_minutes": 2880,
+          "recovered_cases": 34,
+          "gross_recovered_paise": 13664000
+        }
+      ],
+      "recovery_by_failure": [
+        {
+          "failure_code": "ABANDONED",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 662300
+        },
+        {
+          "failure_code": "ALREADY_PAID",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "AUTHENTICATION_INCOMPLETE",
+          "cases": 13,
+          "recovered_cases": 8,
+          "gross_recovered_paise": 3707300
+        },
+        {
+          "failure_code": "INSUFFICIENT_FUNDS",
+          "cases": 13,
+          "recovered_cases": 4,
+          "gross_recovered_paise": 1387400
+        },
+        {
+          "failure_code": "METHOD_UNAVAILABLE",
+          "cases": 12,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 3757400
+        },
+        {
+          "failure_code": "RISK_BLOCKED",
+          "cases": 12,
+          "recovered_cases": 0,
+          "gross_recovered_paise": 0
+        },
+        {
+          "failure_code": "TRANSIENT",
+          "cases": 13,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 2299700
+        },
+        {
+          "failure_code": "UNKNOWN",
+          "cases": 12,
+          "recovered_cases": 3,
+          "gross_recovered_paise": 1849900
+        }
+      ],
+      "recovery_by_action": [
+        {
+          "action": "ASSISTED_REVIEW",
+          "cases": 9,
+          "recovered_cases": 5,
+          "gross_recovered_paise": 5049900,
+          "assumed_cost_paise": 45000,
+          "net_recovered_paise": 5004900
+        },
+        {
+          "action": "FRESH_CHECKOUT_LINK",
+          "cases": 9,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 2374800,
+          "assumed_cost_paise": 1800,
+          "net_recovered_paise": 2373000
+        },
+        {
+          "action": "NO_ACTION",
+          "cases": 71,
+          "recovered_cases": 9,
+          "gross_recovered_paise": 4414900,
+          "assumed_cost_paise": 0,
+          "net_recovered_paise": 4414900
+        },
+        {
+          "action": "REMINDER",
+          "cases": 6,
+          "recovered_cases": 6,
+          "gross_recovered_paise": 774700,
+          "assumed_cost_paise": 600,
+          "net_recovered_paise": 774100
+        },
+        {
+          "action": "RETRY_INVITATION",
+          "cases": 5,
+          "recovered_cases": 5,
+          "gross_recovered_paise": 1049700,
+          "assumed_cost_paise": 500,
+          "net_recovered_paise": 1049200
         }
       ]
     }

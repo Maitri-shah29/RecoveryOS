@@ -36,5 +36,9 @@ describe("held-out evaluation", () => {
     expect(rerun.all_cases_accounted_for).toBe(true);
     expect(rerun.policies).toHaveLength(4);
     expect(rerun.policies.every((metric) => metric.unauthorized_contacts === 0 && metric.duplicate_external_actions === 0 && metric.successful_payment_double_attributions === 0)).toBe(true);
+    expect(rerun.policies.every((metric) => metric.recovery_curve.length === 5)).toBe(true);
+    const recovery = rerun.policies.find((metric) => metric.policy === "RECOVERY_OS");
+    expect(recovery?.recovery_by_failure.reduce((sum, item) => sum + item.cases, 0)).toBe(100);
+    expect(recovery?.recovery_by_action.reduce((sum, item) => sum + item.cases, 0)).toBe(100);
   });
 });

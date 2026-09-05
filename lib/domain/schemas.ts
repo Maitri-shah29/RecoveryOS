@@ -106,3 +106,9 @@ export const proofModeSelectionSchema = z.object({
 export const operatorReasonSchema = z.object({
   reason: z.string().trim().min(3).max(500),
 }).strict();
+
+export const operatorPlanModificationSchema = z.object({
+  action: recoveryActionSchema,
+  delay_minutes: delayMinutesSchema,
+  reason: z.string().trim().min(3).max(500),
+}).strict();

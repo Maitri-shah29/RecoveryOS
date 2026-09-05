@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { planWithSafeFallback, type RecommendationClient } from "@/lib/ai/planner";
 import { aiRecommendationSchema } from "@/lib/ai/schema";
+import { operatorPlanModificationSchema } from "@/lib/domain/schemas";
 import { benchmarkCase } from "./fixtures";
 
 describe("AI planner boundary", () => {
@@ -31,5 +32,10 @@ describe("AI planner boundary", () => {
 
   it("rejects unknown output fields", () => {
     expect(aiRecommendationSchema.safeParse({ diagnosis: "TRANSIENT", confidence: 0.8, recommended_action: "NO_ACTION", recommended_delay_minutes: 0, expected_recovery_probability: 0, reason_codes: ["safe"], customer_message: "", requires_human_review: false, arbitrary_tool: "charge" }).success).toBe(false);
+  });
+
+  it("accepts only allow-listed operator plan modifications", () => {
+    expect(operatorPlanModificationSchema.safeParse({ action: "FRESH_CHECKOUT_LINK", delay_minutes: 0, reason: "Operator selected a fresh link" }).success).toBe(true);
+    expect(operatorPlanModificationSchema.safeParse({ action: "CHARGE_CARD", delay_minutes: 0, reason: "Unsafe mutation" }).success).toBe(false);
   });
 });

@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ArrowUpRight, CheckCircle2, Database, ShieldCheck } from "lucide-react";
 import type { BenchmarkReport, PolicyMetrics } from "@/lib/benchmark/evaluator";
-import { ResultsChart } from "@/components/results-chart";
+import { RecoveryCurve, ResultsChart } from "@/components/results-chart";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -37,6 +37,7 @@ export default async function Home() {
   if (!recovery) throw new Error("RecoveryOS policy result is missing");
   const chartData = report.policies.map((metric) => ({ name: policyLabels[metric.policy].replace(" · 30 min", ""), gross: metric.gross_recovered_paise / 100, net: metric.net_recovered_paise / 100 }));
   const checksPassed = report.identical_dataset_checksum_for_all_policies && report.all_cases_accounted_for && report.policies.every((metric) => metric.unauthorized_contacts === 0);
+  const contactRate = recovery.contacts / report.heldout_case_count;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
@@ -58,11 +59,13 @@ export default async function Home() {
         </div>
       </header>
 
-      <section aria-label="RecoveryOS summary" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section aria-label="RecoveryOS summary" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         <MetricCard label="Revenue at risk" value={rupees(recovery.revenue_at_risk_paise)} detail={`${report.heldout_case_count} frozen cases`} icon={<Database className="size-4" />} />
         <MetricCard label="Net recovered · simulated" value={rupees(recovery.net_recovered_paise)} detail={`${recovery.recovered_cases} recovered cases`} icon={<ArrowUpRight className="size-4" />} />
         <MetricCard label="Incremental vs fixed rule" value={rupees(recovery.incremental_net_vs_fixed_paise)} detail="After illustrative costs" icon={<ArrowUpRight className="size-4" />} accent />
         <MetricCard label="Safety gates" value={checksPassed ? "Passed" : "Needs review"} detail={`${recovery.unauthorized_contacts} unauthorized contacts`} icon={<ShieldCheck className="size-4" />} />
+        <MetricCard label="Contact rate" value={`${(contactRate * 100).toFixed(0)}%`} detail={`${recovery.contacts} / ${report.heldout_case_count} cases`} icon={<ArrowUpRight className="size-4" />} />
+        <MetricCard label="Unresolved" value={String(recovery.unresolved_cases)} detail={`${recovery.escalations} escalations`} icon={<ShieldCheck className="size-4" />} />
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[1.4fr_1fr]">
@@ -91,13 +94,18 @@ export default async function Home() {
       </section>
 
       <Card>
+        <CardHeader><CardTitle>Recovery curve over time</CardTitle><CardDescription>Cumulative gross simulated RecoveryOS recovery across the frozen 48-hour evaluation window.</CardDescription></CardHeader>
+        <CardContent><RecoveryCurve data={recovery.recovery_curve} /></CardContent>
+      </Card>
+
+      <Card>
         <CardHeader>
           <CardTitle>Four-policy comparison</CardTitle>
           <CardDescription>{report.cost_assumption_label}. Costs: no action ₹0, reminder/retry ₹1, fresh link ₹2, assisted review ₹50.</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
-            <TableHeader><TableRow><TableHead>Policy</TableHead><TableHead className="text-right">Gross</TableHead><TableHead className="text-right">Cost</TableHead><TableHead className="text-right">Net</TableHead><TableHead className="text-right">Contacts</TableHead><TableHead className="text-right">Blocked</TableHead><TableHead className="text-right">Exceptions</TableHead></TableRow></TableHeader>
+            <TableHeader><TableRow><TableHead>Policy</TableHead><TableHead className="text-right">Gross</TableHead><TableHead className="text-right">Cost</TableHead><TableHead className="text-right">Net</TableHead><TableHead className="text-right">Contacts</TableHead><TableHead className="text-right">Blocked</TableHead><TableHead className="text-right">Exceptions</TableHead><TableHead className="text-right">Violations</TableHead></TableRow></TableHeader>
             <TableBody>
               {report.policies.map((metric) => (
                 <TableRow key={metric.policy} className={metric.policy === "RECOVERY_OS" ? "bg-primary/[0.04]" : undefined}>
@@ -108,6 +116,7 @@ export default async function Home() {
                   <TableCell className="text-right font-mono">{metric.contacts}</TableCell>
                   <TableCell className="text-right font-mono">{metric.blocked_cases}</TableCell>
                   <TableCell className="text-right font-mono">{metric.unresolved_cases}</TableCell>
+                  <TableCell className="text-right font-mono">{metric.unauthorized_contacts + metric.duplicate_external_actions + metric.successful_payment_double_attributions}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

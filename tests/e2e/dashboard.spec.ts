@@ -8,6 +8,7 @@ test("keeps simulated benchmark and proof evidence visibly separate", async ({ p
   await expect(page.getByText("Razorpay proof evidence", { exact: true })).toBeVisible();
   await expect(page.getByText("This value is never combined with simulated recovery", { exact: false })).toBeVisible();
   await expect(page.getByRole("cell", { name: "RecoveryOS Policy" })).toBeVisible();
+  await expect(page.getByRole("img", { name: "Cumulative simulated RecoveryOS revenue over 48 hours" })).toBeVisible();
 });
 
 test("renders comparison evidence and the database-backed queue", async ({ page }) => {
@@ -20,6 +21,10 @@ test("renders comparison evidence and the database-backed queue", async ({ page 
   await expect(page.getByRole("heading", { name: "Recovery queue" })).toBeVisible();
   await expect(page.getByText("PostgreSQL is unavailable", { exact: false })).toHaveCount(0);
   await expect(page.getByRole("table")).toBeVisible();
+  await expect(page.getByLabel("Diagnosis")).toBeVisible();
+  await expect(page.getByLabel("Action")).toBeVisible();
+  await expect(page.getByLabel("Confidence")).toBeVisible();
+  await expect(page.getByLabel("Escalation")).toBeVisible();
 });
 
 test("runs all safe failure injections in the browser", async ({ page }) => {
