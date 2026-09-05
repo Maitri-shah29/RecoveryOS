@@ -88,5 +88,6 @@ These are controlled simulator results, not production uplift. Razorpay test-mod
 - [Five-minute demo](docs/DEMO.md)
 - [Provider proof evidence](docs/PROOF.md)
 - Machine-readable report: [`reports/heldout-v1.0.0.json`](reports/heldout-v1.0.0.json)
+- Production demo verification: [`artifacts/demo-verification-v1.0.0.json`](artifacts/demo-verification-v1.0.0.json)
 
 The PRD remains the source of truth. Section 31 is the authoritative kickoff contract.

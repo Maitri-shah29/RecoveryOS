@@ -1,0 +1,35 @@
+{
+  "evidence_version": "recoveryos-demo-verification-v1.0.0",
+  "verified_at": "2026-09-05T13:46:43.128Z",
+  "deployment_id": "dpl_8N6GjiwFnEDLK9aRaVnvVDYmADMa",
+  "deployment_url": "https://recoveryos-ruby.vercel.app",
+  "application_commit": "aded2f1",
+  "overview": {
+    "http_status": 200,
+    "ready_ms_warm": 223,
+    "ready_ms_post_deploy": 989,
+    "benchmark_and_proof_separated": true,
+    "verified_proof_link_visible": true
+  },
+  "proof_case": {
+    "case_id": "36425e4e-bf35-4138-8269-59b967065453",
+    "planner_evidence_visible": true,
+    "api_verified_attribution_visible": true,
+    "signature_valid_webhooks": 2,
+    "audit_chain_valid": true,
+    "terminal_read_only_state_visible": true
+  },
+  "exceptions": {
+    "attempt_history_visible": true,
+    "suggested_next_safe_step_visible": true
+  },
+  "failure_lab": {
+    "http_status": 200,
+    "checks_passed": 6,
+    "checks_total": 6,
+    "database_backstops_visible": true
+  },
+  "safe_not_found": true,
+  "unexpected_console_errors": 0,
+  "unexpected_http_errors": 0
+}
