@@ -9,6 +9,7 @@ import { isTerminalRecoveryState } from "@/lib/domain/state-machines";
 import { recoveryCaseToPlannerInput } from "@/lib/domain/case-mapper";
 import { DEFAULT_POLICY, evaluatePolicy, type PolicyConfig } from "@/lib/domain/policy";
 import type { DelayMinutes, RecoveryActionType } from "@/lib/domain/schemas";
+import { buildEscalationContext } from "@/lib/domain/escalation";
 
 export async function rejectCase(caseId: string, reason: string, idempotencyKey: string) {
   return mutateCase(caseId, "/reject", idempotencyKey, { reason }, async (tx, item) => {
@@ -36,12 +37,57 @@ export async function escalateCase(caseId: string, reason: string, idempotencyKe
       throw new ApiError(409, "The case cannot be escalated from its current state.");
     }
     const reasonCode = `operator:${reason.toLowerCase().replace(/[^a-z0-9]+/g, "_").slice(0, 80)}`;
+    const [latestPlan, actions] = await Promise.all([
+      tx.recoveryPlan.findFirst({ where: { caseId }, orderBy: { createdAt: "desc" } }),
+      tx.recoveryAction.findMany({ where: { caseId }, orderBy: { createdAt: "asc" }, select: { type: true, state: true, attemptNumber: true } }),
+    ]);
     const open = await tx.escalation.findFirst({ where: { caseId, reasonCode, state: "OPEN" } });
-    const escalation = open ?? await tx.escalation.create({ data: { caseId, reasonCode, context: { operator_reason: reason } } });
+    const escalation = open ?? await tx.escalation.create({
+      data: {
+        caseId,
+        reasonCode,
+        context: buildEscalationContext({
+          externalCaseId: item.externalCaseId,
+          orderId: item.orderId,
+          amountPaise: item.amountPaise,
+          failureCode: item.failureCode,
+          failureDescription: item.failureDescription,
+          diagnosis: latestPlan?.diagnosis ?? item.failureCode,
+          confidence: latestPlan ? Number(latestPlan.confidence) : 0,
+          policyChecks: latestPlan?.policyDecision ?? [],
+          actions,
+          reasonCode,
+        }) as Prisma.InputJsonObject,
+      },
+    });
     await tx.recoveryAction.updateMany({ where: { caseId, state: { in: ["PROPOSED", "SCHEDULED", "SENT"] } }, data: { state: "CANCELLED" } });
     await tx.recoveryCase.update({ where: { id: caseId }, data: { recoveryState: "ESCALATED" } });
     await appendCaseAudit(tx, caseId, { actorType: "OPERATOR", eventType: "ESCALATION", inputRefs: [escalation.id], decision: { recovery_state: "ESCALATED", reason }, reasonCodes: [reasonCode] });
     return { case_id: caseId, escalation_id: escalation.id, recovery_state: "ESCALATED" };
+  });
+}
+
+export async function disposeEscalation(
+  caseId: string,
+  input: { disposition: "RESOLVED" | "DISMISSED"; resolution: string },
+  idempotencyKey: string,
+) {
+  return mutateCase(caseId, "/disposition", idempotencyKey, input, async (tx, item) => {
+    if (item.recoveryState !== "ESCALATED") throw new ApiError(409, "Only an escalated case can receive an operator disposition.");
+    const disposition = await tx.escalation.updateMany({
+      where: { caseId, state: "OPEN" },
+      data: { state: input.disposition, resolution: input.resolution, resolvedAt: new Date() },
+    });
+    if (disposition.count === 0) throw new ApiError(409, "No open escalation exists for this case.");
+    await tx.recoveryAction.updateMany({ where: { caseId, state: { in: ["PROPOSED", "SCHEDULED", "SENT"] } }, data: { state: "CANCELLED" } });
+    await tx.recoveryCase.update({ where: { id: caseId }, data: { recoveryState: "MANUALLY_STOPPED" } });
+    await appendCaseAudit(tx, caseId, {
+      actorType: "OPERATOR",
+      eventType: "ESCALATION_DISPOSITION",
+      decision: { disposition: input.disposition, resolution: input.resolution, recovery_state: "MANUALLY_STOPPED" },
+      reasonCodes: [`operator_${input.disposition.toLowerCase()}`],
+    });
+    return { case_id: caseId, escalation_state: input.disposition, recovery_state: "MANUALLY_STOPPED" };
   });
 }
 

@@ -112,3 +112,8 @@ export const operatorPlanModificationSchema = z.object({
   delay_minutes: delayMinutesSchema,
   reason: z.string().trim().min(3).max(500),
 }).strict();
+
+export const escalationDispositionSchema = z.object({
+  disposition: z.enum(["RESOLVED", "DISMISSED"]),
+  resolution: z.string().trim().min(3).max(500),
+}).strict();

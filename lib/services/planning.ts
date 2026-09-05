@@ -12,10 +12,11 @@ import { buildAuditEvent, type PreviousAuditEvent } from "@/lib/audit/chain";
 import { ApiError } from "@/lib/http/api";
 import { deterministicFallbackRecommendation, FALLBACK_PLANNER_VERSION } from "@/lib/ai/fallback";
 import { AI_SCHEMA_VERSION, PROMPT_VERSION } from "@/lib/ai/schema";
+import { buildEscalationContext } from "@/lib/domain/escalation";
 
 type PlannedCase = {
   item: RecoveryCase & {
-    actions: { state: string }[];
+    actions: { state: string; type: string; attemptNumber: number }[];
     auditEvents: { sequenceNumber: number; eventHash: string }[];
   };
   output: PlannerOutput;
@@ -47,7 +48,7 @@ export async function planBatch(batchId: string, idempotencyKey: string) {
     include: {
       cases: {
         include: {
-          actions: { where: { state: { in: ["PROPOSED", "SCHEDULED", "SENT"] } }, select: { state: true } },
+          actions: { select: { state: true, type: true, attemptNumber: true } },
           auditEvents: { orderBy: { sequenceNumber: "desc" }, take: 1, select: { sequenceNumber: true, eventHash: true } },
         },
       },
@@ -57,7 +58,10 @@ export async function planBatch(batchId: string, idempotencyKey: string) {
   if (batch.state !== "IMPORTED") throw new ApiError(409, "Batch has already been planned.");
   const virtualNow = batch.mode === "BENCHMARK" ? new Date(VIRTUAL_NOW) : new Date();
   const planned = await mapConcurrent(batch.cases, 8, async (item): Promise<PlannedCase> => {
-    const plannerInput = { ...recoveryCaseToPlannerInput(item), action_in_flight: item.actions.length > 0 };
+    const plannerInput = {
+      ...recoveryCaseToPlannerInput(item),
+      action_in_flight: item.actions.some((action) => ["PROPOSED", "SCHEDULED", "SENT"].includes(action.state)),
+    };
     const eligibility = evaluatePolicy(plannerInput, { action: "REMINDER", delayMinutes: 0, confidence: 1 }, virtualNow);
     if (eligibility.outcome === "BLOCKED") {
       const fallback = deterministicFallbackRecommendation(plannerInput);
@@ -204,7 +208,23 @@ export async function planBatch(batchId: string, idempotencyKey: string) {
         blocked += 1;
       } else if (decision.outcome === "ESCALATED" || recommendation.requires_human_review) {
         setFinalState(item.id, "ESCALATED");
-        escalations.push({ caseId: item.id, reasonCode: decision.reasonCodes[0] ?? "human_review_required", context: { diagnosis: recommendation.diagnosis, confidence: recommendation.confidence, amount_paise: item.amountPaise, policy_checks: decision.gateResults } });
+        const reasonCode = decision.reasonCodes[0] ?? "human_review_required";
+        escalations.push({
+          caseId: item.id,
+          reasonCode,
+          context: buildEscalationContext({
+            externalCaseId: item.externalCaseId,
+            orderId: item.orderId,
+            amountPaise: item.amountPaise,
+            failureCode: item.failureCode,
+            failureDescription: item.failureDescription,
+            diagnosis: recommendation.diagnosis,
+            confidence: recommendation.confidence,
+            policyChecks: decision.gateResults,
+            actions: item.actions,
+            reasonCode,
+          }) as Prisma.InputJsonObject,
+        });
         appendPendingAudit(item.id, { eventType: "ESCALATION", inputRefs: [planId], decision: { recovery_state: "ESCALATED" }, reasonCodes: decision.reasonCodes });
         escalated += 1;
       } else if (batch.mode === "RAZORPAY_PROOF") {
