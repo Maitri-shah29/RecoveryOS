@@ -32,20 +32,22 @@ export async function persistCommittedEvaluation(batchId: string, idempotencyKey
       merchantId: merchant.id, batchId, policyVersionId: policy.id, datasetVersion: report.dataset_version,
       datasetChecksum: report.dataset_checksum, seedId: report.seed_id, state: "COMPLETED", result: report as unknown as Prisma.InputJsonObject, completedAt: new Date(),
     } });
+    const evaluationOutcomes: Prisma.EvaluationOutcomeCreateManyInput[] = [];
     for (const planSet of planSets) {
       for (const plan of planSet.plans) {
         const item = heldoutByExternalId.get(plan.case_id);
         const outcome = outcomes.get(`${plan.case_id}|${plan.action}|${plan.delay_minutes}`);
         if (!item || !outcome) throw new ApiError(500, `Evaluation evidence is incomplete for ${plan.case_id}.`);
         const recovered = outcome.recovered && outcome.recovery_delay_minutes !== null && outcome.recovery_delay_minutes < 2_880;
-        await tx.evaluationOutcome.create({ data: {
+        evaluationOutcomes.push({
           evaluationRunId: run.id, caseId: item.id, policyName: plan.policy, action: plan.action,
           delayMinutes: plan.delay_minutes, recovered, recoveredPaise: recovered ? item.amountPaise : 0,
           interventionCostPaise: ACTION_COST_PAISE[plan.action],
           outcomeAt: recovered ? new Date(item.attemptedAt.getTime() + (outcome.recovery_delay_minutes ?? 0) * 60_000) : null,
-        } });
+        });
       }
     }
+    await tx.evaluationOutcome.createMany({ data: evaluationOutcomes });
     return { status: 201, body: { evaluation_id: run.id, state: "COMPLETED", report } as unknown as Prisma.InputJsonObject };
   });
 }

@@ -3,6 +3,8 @@ import { Prisma, type PrismaClient } from "@prisma/client";
 import { canonicalJson } from "@/lib/audit/chain";
 import { ApiError } from "@/lib/http/api";
 
+const REMOTE_MUTATION_TIMEOUT_MS = 240_000;
+
 export type MutationResult<T extends Prisma.InputJsonValue = Prisma.InputJsonValue> = { status: number; body: T };
 
 function requestDigest(route: string, requestBody: unknown) {
@@ -33,7 +35,7 @@ export async function runIdempotentMutation<T extends Prisma.InputJsonValue>(
       const result = await mutation(tx);
       await tx.idempotencyRecord.create({ data: { merchantId, route, idempotencyKey, requestHash, statusCode: result.status, response: result.body } });
       return { ...result, replayed: false };
-    }, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable, maxWait: 10_000, timeout: 60_000 });
+    }, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable, maxWait: 30_000, timeout: REMOTE_MUTATION_TIMEOUT_MS });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
       const replay = await client.idempotencyRecord.findUnique({ where: { merchantId_idempotencyKey: { merchantId, idempotencyKey } } });

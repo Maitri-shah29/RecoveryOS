@@ -10,3 +10,8 @@ test-results/
 *.tsbuildinfo
 prisma/dev.db
 .vercel/
+.agents/
+skills-lock.json
+
+.env*
+!.env.example
